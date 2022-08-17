@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-name-jenkis
+spec:
+  selector:
+   matchLabels:
+    app: my-name-app-jenkis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-name-app-jenkis
+    spec:
+      containers:
+        - name: my-name-app-jenkis
+          image: esilfa/my-name      
+          ports:
+            - containerPort: 8081
+              name: mynameappport
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-name-app-jenkins
+  labels:
+    app: my-name-app-jenkins
+spec:   
+  ports:
+  - name: my-name-app-jenkins
+    port: 8081
+    nodePort : 8080
+  #type: LoadBalancer
+  type: NodePort
+  selector:
+   app: my-name-app-jenkins

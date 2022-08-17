@@ -16,7 +16,7 @@ COPY --chown=node:node . .
 
 RUN sed -i "s/NOMBREACAMBIAR/${CNAME}/g" ./app.js
 
-EXPOSE 8080
+EXPOSE 8081
 
 CMD ["npm","start", "app.js"]
 
