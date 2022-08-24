@@ -1,13 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('clone repository') {
-      steps {
-git --version'''
-      }
-    }
-
-    stage('my name app') {
+      stage('my name app') {
       steps {
         withCredentials(bindings: [
                       string(credentialsId: 'kubernete-jenkis', variable: 'api_token')
