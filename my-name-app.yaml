@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: my-name-app-jenkis
-          image: esilfa/my-name      
+          image: esilfa/my-name:0.0.0.1     
           ports:
-            - containerPort: 8081
+            - containerPort: 3000
               name: mynameappport
 ---
 kind: Service
@@ -29,7 +29,7 @@ spec:
   ports:
   - name: my-name-app-jenkins
     port: 8081
-    nodePort : 8080
+    nodePort : 8081
   #type: LoadBalancer
   type: NodePort
   selector:
