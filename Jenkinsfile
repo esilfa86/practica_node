@@ -1,12 +1,5 @@
 pipeline {
   agent any
-  stages {
-    stage('clone repository') {
-      steps {
-git --version'''
-      }
-    }
-
     stage('my name app') {
       steps {
         withCredentials(bindings: [
@@ -19,4 +12,4 @@ git --version'''
       }
 
     }
-  }
+
