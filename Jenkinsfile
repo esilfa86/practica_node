@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  stages {
     stage('my name app') {
       steps {
         withCredentials(bindings: [
